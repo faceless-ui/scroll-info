@@ -1,8 +1,8 @@
 {
-  "name": "@trbl/react-scroll-position",
-  "version": "0.0.3",
+  "name": "@trbl/react-scroll-info",
+  "version": "0.0.4",
   "main": "dist/build.bundle.js",
-  "repository": "git@github.com:trouble/react-scroll-position.git",
+  "repository": "git@github.com:trouble/react-scroll-info.git",
   "description": "A roll, as of parchment or papyrus, used especially in the writing of a document.",
   "author": "<info@trbl.design>",
   "license": "MIT",

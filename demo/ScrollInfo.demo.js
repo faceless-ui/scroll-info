@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withScrollPosition } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
+import { withScrollInfo } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
 
-const ScrollPositionDemo = (props) => {
+const ScrollInfoDemo = (props) => {
   const {
-    scrollPos: {
+    scrollInfo: {
       x,
       y,
       xDirection,
@@ -29,8 +29,8 @@ const ScrollPositionDemo = (props) => {
   );
 };
 
-ScrollPositionDemo.propTypes = {
-  scrollPos: PropTypes.shape({
+ScrollInfoDemo.propTypes = {
+  scrollInfo: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
     xDirection: PropTypes.oneOf([
@@ -46,4 +46,4 @@ ScrollPositionDemo.propTypes = {
   }).isRequired,
 };
 
-export default withScrollPosition(ScrollPositionDemo);
+export default withScrollInfo(ScrollInfoDemo);

@@ -1,8 +1,8 @@
-[![NPM](https://img.shields.io/npm/v/@trbl/react-scroll-position)](https://www.npmjs.com/@trbl/react-scroll-position)
-![Bundle Size](https://img.shields.io/bundlephobia/minzip/@trbl/react-scroll-position?label=zipped)
+[![NPM](https://img.shields.io/npm/v/@trbl/react-scroll-info)](https://www.npmjs.com/@trbl/react-scroll-info)
+![Bundle Size](https://img.shields.io/bundlephobia/minzip/@trbl/react-scroll-info?label=zipped)
 [![Supported by TRBL](https://img.shields.io/badge/supported_by-TRBL-black)](https://github.com/trouble)
 
-# React Scroll Position
+# React Scroll Info
 
 A roll, as of parchment or papyrus, used especially in the writing of a document.
 
@@ -11,24 +11,24 @@ A roll, as of parchment or papyrus, used especially in the writing of a document
 ### Installation
 
 ```bash
-$ yarn add @trbl/react-scroll-position
+$ yarn add @trbl/react-scroll-info
 ```
 
 ### Compositon
 
 ```jsx
   import React from 'react';
-  import { ScrollPositionProvider, withScrollPosition } from '@trbl/react-scroll-position';
+  import { ScrollInfoProvider, withScrollInfo } from '@trbl/react-scroll-info';
 
-  const MyComponent = withScrollPosition(() => return <div>My Component</div>);
+  const MyComponent = withScrollInfo(() => return <div>My Component</div>);
 
   const App = () => {
     return (
-      <ScrollPositionProvider>
+      <ScrollInfoProvider>
         <MyComponent>
           ...
         </MyComponent>
-      </ScrollPositionProvider>
+      </ScrollInfoProvider>
     )
   }
 
@@ -49,9 +49,9 @@ $ open http://localhost:3000
 
 All available props can be found via the references below:
 
-  - [ScrollPositionProvider](/src/ScrollPositionProvider/README.md)
-  - [withScrollPosition](/src/withScrollPosition/README.md)
+  - [ScrollInfoProvider](/src/ScrollInfoProvider/README.md)
+  - [withScrollInfo](/src/withScrollInfo/README.md)
 
 ## License
 
-[MIT](https://github.com/trouble/react-scroll-position/blob/master/LICENSE) Copyright (c) TRBL, LLC
+[MIT](https://github.com/trouble/react-scroll-info/blob/master/LICENSE) Copyright (c) TRBL, LLC

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ScrollPositionContext from './context';
+import ScrollInfoContext from './context';
 
-class ScrollPositionProvider extends Component {
+class ScrollInfoProvider extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       animationScheduled: false,
-      scrollPos: {
+      scrollInfo: {
         x: 0,
         y: 0,
       },
@@ -17,16 +17,16 @@ class ScrollPositionProvider extends Component {
 
   componentDidMount() {
     window.addEventListener('scroll', this.requestAnimation);
-    this.updateScrollPos();
+    this.updatescrollInfo();
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.requestAnimation);
   }
 
-  updateScrollPos = () => {
+  updatescrollInfo = () => {
     const {
-      scrollPos: {
+      scrollInfo: {
         x: lastScrollX,
         y: lastScrollY,
       },
@@ -37,7 +37,7 @@ class ScrollPositionProvider extends Component {
 
     this.setState({
       animationScheduled: false,
-      scrollPos: {
+      scrollInfo: {
         x: currentScrollX,
         y: currentScrollY,
         xDirection: currentScrollX > lastScrollX ? 'right' : 'left',
@@ -51,27 +51,27 @@ class ScrollPositionProvider extends Component {
   requestAnimation = () => {
     const { animationScheduled } = this.state;
     if (!animationScheduled) {
-      requestAnimationFrame(this.updateScrollPos);
+      requestAnimationFrame(this.updatescrollInfo);
       this.setState({ animationScheduled: true });
     }
   }
 
   render() {
     const { children } = this.props;
-    const { scrollPos } = this.state;
+    const { scrollInfo } = this.state;
 
     return (
-      <ScrollPositionContext.Provider value={{ scrollPos }}>
+      <ScrollInfoContext.Provider value={{ scrollInfo }}>
         {children}
-      </ScrollPositionContext.Provider>
+      </ScrollInfoContext.Provider>
     );
   }
 }
 
-ScrollPositionProvider.defaultProps = {};
+ScrollInfoProvider.defaultProps = {};
 
-ScrollPositionProvider.propTypes = {
+ScrollInfoProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default ScrollPositionProvider;
+export default ScrollInfoProvider;
