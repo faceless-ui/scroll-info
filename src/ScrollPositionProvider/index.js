@@ -25,14 +25,23 @@ class ScrollPositionProvider extends Component {
   }
 
   updateScrollPos = () => {
-    const { scrollPos } = this.state;
+    const {
+      scrollPos: {
+        x: lastScrollX,
+        y: lastScrollY,
+      },
+    } = this.state;
+
+    const currentScrollX = window.pageXOffset;
+    const currentScrollY = window.pageYOffset;
 
     this.setState({
       animationScheduled: false,
       scrollPos: {
-        ...scrollPos,
-        x: window.pageXOffset,
-        y: window.pageYOffset,
+        x: currentScrollX,
+        y: currentScrollY,
+        xDirection: currentScrollX > lastScrollX ? 'right' : 'left',
+        yDirection: currentScrollY > lastScrollY ? 'down' : 'up',
       },
     });
   };

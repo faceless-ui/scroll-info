@@ -7,6 +7,8 @@ const ScrollPositionDemo = (props) => {
     scrollPos: {
       x,
       y,
+      xDirection,
+      yDirection,
     },
   } = props;
 
@@ -15,6 +17,7 @@ const ScrollPositionDemo = (props) => {
       <code>
         <pre>
           {`scroll position: { x: ${x}, y: ${y} }`}
+          {`scroll direction: { xDirection: ${xDirection}, yDirection: ${yDirection} }`}
         </pre>
       </code>
     </div>
@@ -25,6 +28,14 @@ ScrollPositionDemo.propTypes = {
   scrollPos: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
+    xDirection: PropTypes.oneOf([
+      'left',
+      'right',
+    ]),
+    yDirection: PropTypes.oneOf([
+      'up',
+      'down',
+    ]),
   }).isRequired,
 };
 
