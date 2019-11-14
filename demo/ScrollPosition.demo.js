@@ -9,6 +9,8 @@ const ScrollPositionDemo = (props) => {
       y,
       xDirection,
       yDirection,
+      xPercentage,
+      yPercentage,
     },
   } = props;
 
@@ -17,7 +19,10 @@ const ScrollPositionDemo = (props) => {
       <code>
         <pre>
           {`scroll position: { x: ${x}, y: ${y} }`}
+          <br />
           {`scroll direction: { xDirection: ${xDirection}, yDirection: ${yDirection} }`}
+          <br />
+          {`scroll percentage: { xPercentage: ${xPercentage}, yPercentage: ${yPercentage} }`}
         </pre>
       </code>
     </div>
@@ -36,6 +41,8 @@ ScrollPositionDemo.propTypes = {
       'up',
       'down',
     ]),
+    xPercentage: PropTypes.number,
+    yPercentage: PropTypes.number,
   }).isRequired,
 };
 

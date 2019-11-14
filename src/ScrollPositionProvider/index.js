@@ -42,6 +42,8 @@ class ScrollPositionProvider extends Component {
         y: currentScrollY,
         xDirection: currentScrollX > lastScrollX ? 'right' : 'left',
         yDirection: currentScrollY > lastScrollY ? 'down' : 'up',
+        xPercentage: Math.floor((currentScrollX / (document.body.scrollHeight - window.innerWidth)) * 100),
+        yPercentage: Math.floor((currentScrollY / (document.body.scrollHeight - window.innerHeight)) * 100),
       },
     });
   };
