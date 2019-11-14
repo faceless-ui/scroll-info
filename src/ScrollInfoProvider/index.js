@@ -11,29 +11,41 @@ class ScrollInfoProvider extends Component {
       scrollInfo: {
         x: 0,
         y: 0,
+        xDifference: 0,
+        yDifference: 0,
+        xDirection: '',
+        yDirection: '',
+        xPercentage: 0,
+        yPercentage: 0,
       },
+      count: 0,
     };
   }
 
   componentDidMount() {
     window.addEventListener('scroll', this.requestAnimation);
-    this.updatescrollInfo();
+    this.updateScrollInfo();
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.requestAnimation);
   }
 
-  updatescrollInfo = () => {
+  updateScrollInfo = () => {
     const {
       scrollInfo: {
         x: lastScrollX,
         y: lastScrollY,
       },
+      count: scrollCount,
     } = this.state;
 
-    const currentScrollX = window.pageXOffset;
-    const currentScrollY = window.pageYOffset;
+    // Set to zero on first trigger for cross-browser compatility
+    // The inconsistencies occur when the window is reloaded with a cached scroll position
+    // Chrome mounts with the window page offset while Safari and FireFox receive it on first scroll
+    const currentScrollX = scrollCount > 0 ? window.pageXOffset : 0;
+    const currentScrollY = scrollCount > 0 ? window.pageYOffset : 0;
+
     const xDifference = currentScrollX - lastScrollX;
     const yDifference = currentScrollY - lastScrollY;
 
@@ -53,19 +65,25 @@ class ScrollInfoProvider extends Component {
   };
 
   requestAnimation = () => {
-    const { animationScheduled } = this.state;
+    const { animationScheduled, count } = this.state;
     if (!animationScheduled) {
-      requestAnimationFrame(this.updatescrollInfo);
-      this.setState({ animationScheduled: true });
+      requestAnimationFrame(this.updateScrollInfo);
+      this.setState({ animationScheduled: true, count: count + 1 });
     }
   }
 
   render() {
     const { children } = this.props;
-    const { scrollInfo } = this.state;
+    const { scrollInfo, count } = this.state;
 
     return (
-      <ScrollInfoContext.Provider value={{ scrollInfo }}>
+      <ScrollInfoContext.Provider value={{
+        scrollInfo: {
+          ...scrollInfo,
+          count,
+        },
+      }}
+      >
         {children}
       </ScrollInfoContext.Provider>
     );

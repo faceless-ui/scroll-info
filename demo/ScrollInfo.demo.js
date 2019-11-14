@@ -13,6 +13,7 @@ const ScrollInfoDemo = (props) => {
       yDirection,
       xPercentage,
       yPercentage,
+      count,
     },
   } = props;
 
@@ -46,6 +47,9 @@ const ScrollInfoDemo = (props) => {
           &emsp;
           {`yPercentage: ${yPercentage}`}
           <br />
+          &emsp;
+          {`count: ${count},`}
+          <br />
           {'}'}
         </pre>
       </code>
@@ -60,15 +64,18 @@ ScrollInfoDemo.propTypes = {
     xPercentage: PropTypes.number,
     yPercentage: PropTypes.number,
     xDirection: PropTypes.oneOf([
+      '',
       'left',
       'right',
     ]),
     yDirection: PropTypes.oneOf([
+      '',
       'up',
       'down',
     ]),
     xDifference: PropTypes.number,
     yDifference: PropTypes.number,
+    count: PropTypes.number,
   }).isRequired,
 };
 
