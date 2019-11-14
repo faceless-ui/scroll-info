@@ -34,16 +34,20 @@ class ScrollInfoProvider extends Component {
 
     const currentScrollX = window.pageXOffset;
     const currentScrollY = window.pageYOffset;
+    const xDifference = currentScrollX - lastScrollX;
+    const yDifference = currentScrollY - lastScrollY;
 
     this.setState({
       animationScheduled: false,
       scrollInfo: {
         x: currentScrollX,
         y: currentScrollY,
-        xDirection: currentScrollX > lastScrollX ? 'right' : 'left',
-        yDirection: currentScrollY > lastScrollY ? 'down' : 'up',
-        xPercentage: Math.floor((currentScrollX / (document.body.scrollHeight - window.innerWidth)) * 100),
-        yPercentage: Math.floor((currentScrollY / (document.body.scrollHeight - window.innerHeight)) * 100),
+        xDifference,
+        yDifference,
+        xDirection: xDifference > 0 ? 'right' : 'left',
+        yDirection: yDifference > 0 ? 'down' : 'up',
+        xPercentage: Number((currentScrollX / (document.body.scrollHeight - window.innerWidth) * 100).toFixed(3)),
+        yPercentage: Number((currentScrollY / (document.body.scrollHeight - window.innerHeight) * 100).toFixed(3)),
       },
     });
   };
