@@ -40,9 +40,10 @@ class ScrollInfoProvider extends Component {
       count: scrollCount,
     } = this.state;
 
-    // Set to zero on first trigger for cross-browser compatility
+    // Set to zero on first interation for cross-browser compatility
     // The inconsistencies occur when the window is reloaded with a cached scroll position
-    // Chrome mounts with the window page offset while Safari and FireFox receive it on first scroll
+    // Chrome mounts with the cached window page offset
+    // Safari and FireFox don't populate it until the first scroll event which is triggered by the browser
     const currentScrollX = scrollCount > 0 ? window.pageXOffset : 0;
     const currentScrollY = scrollCount > 0 ? window.pageYOffset : 0;
 
@@ -77,12 +78,13 @@ class ScrollInfoProvider extends Component {
     const { scrollInfo, count } = this.state;
 
     return (
-      <ScrollInfoContext.Provider value={{
-        scrollInfo: {
-          ...scrollInfo,
-          count,
-        },
-      }}
+      <ScrollInfoContext.Provider
+        value={{
+          scrollInfo: {
+            ...scrollInfo,
+            count,
+          },
+        }}
       >
         {children}
       </ScrollInfoContext.Provider>
