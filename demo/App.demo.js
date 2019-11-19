@@ -8,7 +8,7 @@ const AppDemo = () => {
       <ScrollInfoDemo />
       <div
         id="spacer"
-        style={{ height: '10000px', width: '10000px' }}
+        style={{ height: '16000px', width: '10000px' }}
       />
     </ScrollInfoProvider>
   );

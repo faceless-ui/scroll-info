@@ -8,16 +8,14 @@ class ScrollInfoProvider extends Component {
 
     this.state = {
       animationScheduled: false,
-      scrollInfo: {
-        x: 0,
-        y: 0,
-        xDifference: 0,
-        yDifference: 0,
-        xDirection: '',
-        yDirection: '',
-        xPercentage: 0,
-        yPercentage: 0,
-      },
+      x: 0,
+      y: 0,
+      xDifference: 0,
+      yDifference: 0,
+      xDirection: '',
+      yDirection: '',
+      xPercentage: 0,
+      yPercentage: 0,
       count: 0,
       eventsFired: 0,
     };
@@ -34,15 +32,13 @@ class ScrollInfoProvider extends Component {
 
   updateScrollInfo = () => {
     const {
-      scrollInfo: {
-        x: lastScrollX,
-        y: lastScrollY,
-      },
+      x: lastScrollX,
+      y: lastScrollY,
       count: scrollCount,
       eventsFired,
     } = this.state;
 
-    // Set to zero on first interation for cross-browser compatility
+    // Set to zero on first iteration for cross-browser compatibility
     // The inconsistencies occur when the window is reloaded with a cached scroll position
     // Chrome mounts with the cached window.pageOffset
     // Safari and FireFox don't populate it until the first scroll event which is triggered by the browser
@@ -56,16 +52,14 @@ class ScrollInfoProvider extends Component {
 
     this.setState({
       animationScheduled: false,
-      scrollInfo: {
-        x: currentScrollX,
-        y: currentScrollY,
-        xDifference,
-        yDifference,
-        xDirection: xDifference > 0 ? 'right' : 'left',
-        yDirection: yDifference > 0 ? 'down' : 'up',
-        xPercentage: Number((currentScrollX / (document.body.scrollHeight - window.innerWidth) * 100).toFixed(3)),
-        yPercentage: Number((currentScrollY / (document.body.scrollHeight - window.innerHeight) * 100).toFixed(3)),
-      },
+      x: currentScrollX,
+      y: currentScrollY,
+      xDifference,
+      yDifference,
+      xDirection: xDifference > 0 ? 'right' : 'left',
+      yDirection: yDifference > 0 ? 'down' : 'up',
+      xPercentage: Number((currentScrollX / (document.body.scrollWidth - window.innerWidth) * 100).toFixed(3)),
+      yPercentage: Number((currentScrollY / (document.body.scrollHeight - window.innerHeight) * 100).toFixed(3)),
       count: scrollHasChanged ? scrollCount + 1 : scrollCount,
     });
   };
@@ -80,13 +74,30 @@ class ScrollInfoProvider extends Component {
 
   render() {
     const { children } = this.props;
-    const { scrollInfo, count } = this.state;
+    const {
+      x,
+      y,
+      xDifference,
+      yDifference,
+      xDirection,
+      yDirection,
+      xPercentage,
+      yPercentage,
+      count,
+    } = this.state;
 
     return (
       <ScrollInfoContext.Provider
         value={{
           scrollInfo: {
-            ...scrollInfo,
+            x,
+            y,
+            xDifference,
+            yDifference,
+            xDirection,
+            yDirection,
+            xPercentage,
+            yPercentage,
             count,
           },
         }}
