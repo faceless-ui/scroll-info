@@ -23,31 +23,31 @@ const ScrollInfoDemo = (props) => {
         <pre>
           {'scrollPos:{'}
           <br />
-          &emsp;
+            &emsp;
           {`x: ${x},`}
           <br />
-          &emsp;
+            &emsp;
           {`y: ${y},`}
           <br />
-          &emsp;
+            &emsp;
           {`xDifference: ${xDifference},`}
           <br />
-          &emsp;
+            &emsp;
           {`yDifference: ${yDifference},`}
           <br />
-          &emsp;
+            &emsp;
           {`xDirection: ${xDirection},`}
           <br />
-          &emsp;
+            &emsp;
           {`yDirection: ${yDirection},`}
           <br />
-          &emsp;
+            &emsp;
           {`xPercentage: ${xPercentage},`}
           <br />
-          &emsp;
+            &emsp;
           {`yPercentage: ${yPercentage}`}
           <br />
-          &emsp;
+            &emsp;
           {`count: ${count},`}
           <br />
           {'}'}

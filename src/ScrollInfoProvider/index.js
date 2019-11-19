@@ -19,6 +19,7 @@ class ScrollInfoProvider extends Component {
         yPercentage: 0,
       },
       count: 0,
+      eventsFired: 0,
     };
   }
 
@@ -38,17 +39,20 @@ class ScrollInfoProvider extends Component {
         y: lastScrollY,
       },
       count: scrollCount,
+      eventsFired,
     } = this.state;
 
     // Set to zero on first interation for cross-browser compatility
     // The inconsistencies occur when the window is reloaded with a cached scroll position
-    // Chrome mounts with the cached window page offset
+    // Chrome mounts with the cached window.pageOffset
     // Safari and FireFox don't populate it until the first scroll event which is triggered by the browser
-    const currentScrollX = scrollCount > 0 ? window.pageXOffset : 0;
-    const currentScrollY = scrollCount > 0 ? window.pageYOffset : 0;
+    const currentScrollX = eventsFired > 0 ? window.pageXOffset : 0;
+    const currentScrollY = eventsFired > 0 ? window.pageYOffset : 0;
 
     const xDifference = currentScrollX - lastScrollX;
     const yDifference = currentScrollY - lastScrollY;
+
+    const scrollHasChanged = xDifference > 0 || yDifference > 0;
 
     this.setState({
       animationScheduled: false,
@@ -62,14 +66,15 @@ class ScrollInfoProvider extends Component {
         xPercentage: Number((currentScrollX / (document.body.scrollHeight - window.innerWidth) * 100).toFixed(3)),
         yPercentage: Number((currentScrollY / (document.body.scrollHeight - window.innerHeight) * 100).toFixed(3)),
       },
+      count: scrollHasChanged ? scrollCount + 1 : scrollCount,
     });
   };
 
   requestAnimation = () => {
-    const { animationScheduled, count } = this.state;
+    const { animationScheduled, eventsFired } = this.state;
     if (!animationScheduled) {
       requestAnimationFrame(this.updateScrollInfo);
-      this.setState({ animationScheduled: true, count: count + 1 });
+      this.setState({ animationScheduled: true, eventsFired: eventsFired + 1 });
     }
   }
 
