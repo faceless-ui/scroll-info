@@ -52,7 +52,7 @@ class ScrollInfoProvider extends Component {
     const xDifference = currentScrollX - lastScrollX;
     const yDifference = currentScrollY - lastScrollY;
 
-    const scrollHasChanged = xDifference > 0 || yDifference > 0;
+    const scrollHasChanged = xDifference !== 0 || yDifference !== 0;
 
     this.setState({
       animationScheduled: false,
