@@ -16,6 +16,7 @@ class ScrollInfoProvider extends Component {
       yDirection: '',
       xPercentage: 0,
       yPercentage: 0,
+      totalPercentage: 0,
       count: 0,
       eventsFired: 0,
     };
@@ -47,6 +48,9 @@ class ScrollInfoProvider extends Component {
 
     const xDifference = currentScrollX - lastScrollX;
     const yDifference = currentScrollY - lastScrollY;
+    const xPercentage = Number((currentScrollX / (document.body.scrollWidth - window.innerWidth)).toFixed(3));
+    const yPercentage = Number((currentScrollY / (document.body.scrollHeight - window.innerHeight)).toFixed(3));
+    const totalPercentage = Number(((xPercentage + yPercentage) / 2).toFixed(3));
 
     const scrollHasChanged = xDifference !== 0 || yDifference !== 0;
 
@@ -58,8 +62,9 @@ class ScrollInfoProvider extends Component {
       yDifference,
       xDirection: xDifference > 0 ? 'right' : 'left',
       yDirection: yDifference > 0 ? 'down' : 'up',
-      xPercentage: Number((currentScrollX / (document.body.scrollWidth - window.innerWidth) * 100).toFixed(3)),
-      yPercentage: Number((currentScrollY / (document.body.scrollHeight - window.innerHeight) * 100).toFixed(3)),
+      xPercentage,
+      yPercentage,
+      totalPercentage,
       count: scrollHasChanged ? scrollCount + 1 : scrollCount,
     });
   };
@@ -83,6 +88,7 @@ class ScrollInfoProvider extends Component {
       yDirection,
       xPercentage,
       yPercentage,
+      totalPercentage,
       count,
     } = this.state;
 
@@ -98,6 +104,7 @@ class ScrollInfoProvider extends Component {
             yDirection,
             xPercentage,
             yPercentage,
+            totalPercentage,
             count,
           },
         }}

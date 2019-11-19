@@ -13,6 +13,7 @@ const ScrollInfoDemo = (props) => {
       yDirection,
       xPercentage,
       yPercentage,
+      totalPercentage,
       count,
     },
   } = props;
@@ -23,31 +24,34 @@ const ScrollInfoDemo = (props) => {
         <pre>
           {'scrollPos:{'}
           <br />
-            &emsp;
+          &emsp;
           {`x: ${x},`}
           <br />
-            &emsp;
+          &emsp;
           {`y: ${y},`}
           <br />
-            &emsp;
+          &emsp;
           {`xDifference: ${xDifference},`}
           <br />
-            &emsp;
+          &emsp;
           {`yDifference: ${yDifference},`}
           <br />
-            &emsp;
+          &emsp;
           {`xDirection: ${xDirection},`}
           <br />
-            &emsp;
+           &emsp;
           {`yDirection: ${yDirection},`}
           <br />
-            &emsp;
+          &emsp;
           {`xPercentage: ${xPercentage},`}
           <br />
-            &emsp;
+          &emsp;
           {`yPercentage: ${yPercentage}`}
           <br />
-            &emsp;
+          &emsp;
+          {`totalPercentage: ${totalPercentage}`}
+          <br />
+          &emsp;
           {`count: ${count},`}
           <br />
           {'}'}
@@ -61,8 +65,8 @@ ScrollInfoDemo.propTypes = {
   scrollInfo: PropTypes.shape({
     x: PropTypes.number,
     y: PropTypes.number,
-    xPercentage: PropTypes.number,
-    yPercentage: PropTypes.number,
+    xDifference: PropTypes.number,
+    yDifference: PropTypes.number,
     xDirection: PropTypes.oneOf([
       '',
       'left',
@@ -73,8 +77,9 @@ ScrollInfoDemo.propTypes = {
       'up',
       'down',
     ]),
-    xDifference: PropTypes.number,
-    yDifference: PropTypes.number,
+    xPercentage: PropTypes.number,
+    yPercentage: PropTypes.number,
+    totalPercentage: PropTypes.number,
     count: PropTypes.number,
   }).isRequired,
 };
