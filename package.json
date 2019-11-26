@@ -1,6 +1,6 @@
 {
   "name": "@trbl/react-scroll-info",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "main": "dist/build.bundle.js",
   "repository": "git@github.com:trouble/react-scroll-info.git",
   "description": "A roll, as of parchment or papyrus, used especially in the writing of a document.",
@@ -20,7 +20,7 @@
     "test": "echo \"No test specified\""
   },
   "peerDependencies": {
-    "react": "^16.11.0"
+    "react": "^16.8.0"
   },
   "dependencies": {
     "prop-types": "^15.7.2",

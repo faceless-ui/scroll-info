@@ -46,10 +46,10 @@ const ScrollInfoDemo = (props) => {
           {`xPercentage: ${xPercentage},`}
           <br />
           &emsp;
-          {`yPercentage: ${yPercentage}`}
+          {`yPercentage: ${yPercentage},`}
           <br />
           &emsp;
-          {`totalPercentage: ${totalPercentage}`}
+          {`totalPercentage: ${totalPercentage},`}
           <br />
           &emsp;
           {`eventsFired: ${eventsFired},`}
