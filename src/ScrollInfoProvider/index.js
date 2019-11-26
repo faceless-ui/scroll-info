@@ -17,8 +17,8 @@ class ScrollInfoProvider extends Component {
       xPercentage: 0,
       yPercentage: 0,
       totalPercentage: 0,
-      count: 0,
       eventsFired: 0,
+      animationsFired: 0,
     };
   }
 
@@ -35,16 +35,16 @@ class ScrollInfoProvider extends Component {
     const {
       x: lastScrollX,
       y: lastScrollY,
-      count: scrollCount,
       eventsFired,
+      animationsFired,
     } = this.state;
 
     // Set to zero on first iteration for cross-browser compatibility
     // The inconsistencies occur when the window is reloaded with a cached scroll position
     // Chrome mounts with the cached window.pageOffset
     // Safari and FireFox don't populate it until the first scroll event which is triggered by the browser
-    const currentScrollX = eventsFired > 0 ? window.pageXOffset : 0;
-    const currentScrollY = eventsFired > 0 ? window.pageYOffset : 0;
+    const currentScrollX = animationsFired > 0 ? window.pageXOffset : 0;
+    const currentScrollY = animationsFired > 0 ? window.pageYOffset : 0;
 
     const xDifference = currentScrollX - lastScrollX;
     const yDifference = currentScrollY - lastScrollY;
@@ -65,15 +65,15 @@ class ScrollInfoProvider extends Component {
       xPercentage,
       yPercentage,
       totalPercentage,
-      count: scrollHasChanged ? scrollCount + 1 : scrollCount,
+      eventsFired: scrollHasChanged ? eventsFired + 1 : eventsFired,
     });
   };
 
   requestAnimation = () => {
-    const { animationScheduled, eventsFired } = this.state;
+    const { animationScheduled, animationsFired } = this.state;
     if (!animationScheduled) {
       requestAnimationFrame(this.updateScrollInfo);
-      this.setState({ animationScheduled: true, eventsFired: eventsFired + 1 });
+      this.setState({ animationScheduled: true, animationsFired: animationsFired + 1 });
     }
   }
 
@@ -89,7 +89,7 @@ class ScrollInfoProvider extends Component {
       xPercentage,
       yPercentage,
       totalPercentage,
-      count,
+      eventsFired,
     } = this.state;
 
     return (
@@ -105,7 +105,7 @@ class ScrollInfoProvider extends Component {
             xPercentage,
             yPercentage,
             totalPercentage,
-            count,
+            eventsFired,
           },
         }}
       >

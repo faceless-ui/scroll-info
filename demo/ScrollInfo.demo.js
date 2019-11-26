@@ -14,7 +14,7 @@ const ScrollInfoDemo = (props) => {
       xPercentage,
       yPercentage,
       totalPercentage,
-      count,
+      eventsFired,
     },
   } = props;
 
@@ -22,7 +22,7 @@ const ScrollInfoDemo = (props) => {
     <div style={{ position: 'fixed' }}>
       <code>
         <pre>
-          {'scrollPos:{'}
+          {'scrollInfo: {'}
           <br />
           &emsp;
           {`x: ${x},`}
@@ -52,7 +52,7 @@ const ScrollInfoDemo = (props) => {
           {`totalPercentage: ${totalPercentage}`}
           <br />
           &emsp;
-          {`count: ${count},`}
+          {`eventsFired: ${eventsFired},`}
           <br />
           {'}'}
         </pre>
@@ -80,7 +80,7 @@ ScrollInfoDemo.propTypes = {
     xPercentage: PropTypes.number,
     yPercentage: PropTypes.number,
     totalPercentage: PropTypes.number,
-    count: PropTypes.number,
+    eventsFired: PropTypes.number,
   }).isRequired,
 };
 
