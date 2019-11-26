@@ -39,5 +39,6 @@ module.exports = {
     "no-throw-literal": 0,
     "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "no-nested-ternary": 0,
   },
 };
