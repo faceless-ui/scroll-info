@@ -20,7 +20,7 @@
     "test": "echo \"No test specified\""
   },
   "peerDependencies": {
-    "react": "^16.11.0"
+    "react": "^16.8.0"
   },
   "dependencies": {
     "prop-types": "^15.7.2",

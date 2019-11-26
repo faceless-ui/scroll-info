@@ -1,21 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ScrollInfoContext from '../ScrollInfoProvider/context';
 
 const withScrollInfo = (PassedComponent) => {
   const ScrollInfoWrap = (props) => {
+    const context = useContext(ScrollInfoContext);
     return (
-      <ScrollInfoContext.Consumer>
-        {(context) => {
-          return (
-            <PassedComponent
-              {...{
-                ...props,
-                ...context,
-              }}
-            />
-          );
+      <PassedComponent
+        {...{
+          ...props,
+          ...context,
         }}
-      </ScrollInfoContext.Consumer>
+      />
     );
   };
   return ScrollInfoWrap;
