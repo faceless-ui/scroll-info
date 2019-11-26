@@ -33,8 +33,10 @@ class ScrollInfoProvider extends Component {
 
   updateScrollInfo = () => {
     const {
-      x: lastScrollX,
-      y: lastScrollY,
+      x: prevScrollX,
+      y: prevScrollY,
+      xDirection: prevXDirection,
+      yDirection: prevYDirection,
       eventsFired,
       animationsFired,
     } = this.state;
@@ -46,11 +48,15 @@ class ScrollInfoProvider extends Component {
     const currentScrollX = animationsFired > 0 ? window.pageXOffset : 0;
     const currentScrollY = animationsFired > 0 ? window.pageYOffset : 0;
 
-    const xDifference = currentScrollX - lastScrollX;
-    const yDifference = currentScrollY - lastScrollY;
+    const xDifference = currentScrollX - prevScrollX;
+    const yDifference = currentScrollY - prevScrollY;
+
     const xPercentage = Number((currentScrollX / (document.body.scrollWidth - window.innerWidth)).toFixed(3));
     const yPercentage = Number((currentScrollY / (document.body.scrollHeight - window.innerHeight)).toFixed(3));
     const totalPercentage = Number(((xPercentage + yPercentage) / 2).toFixed(3));
+
+    const xDirection = xDifference > 0 ? 'right' : xDifference < 0 ? 'left' : prevXDirection;
+    const yDirection = yDifference > 0 ? 'down' : yDifference < 0 ? 'up' : prevYDirection;
 
     const scrollHasChanged = xDifference !== 0 || yDifference !== 0;
 
@@ -60,8 +66,8 @@ class ScrollInfoProvider extends Component {
       y: currentScrollY,
       xDifference,
       yDifference,
-      xDirection: xDifference > 0 ? 'right' : 'left',
-      yDirection: yDifference > 0 ? 'down' : 'up',
+      xDirection,
+      yDirection,
       xPercentage,
       yPercentage,
       totalPercentage,
