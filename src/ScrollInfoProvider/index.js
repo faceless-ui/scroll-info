@@ -59,8 +59,8 @@ class ScrollInfoProvider extends Component {
     const xDifference = currentScrollX - prevScrollX;
     const yDifference = currentScrollY - prevScrollY;
 
-    const xPercentage = Number((currentScrollX / (document.body.scrollWidth - window.innerWidth)).toFixed(3));
-    const yPercentage = Number((currentScrollY / (document.body.scrollHeight - window.innerHeight)).toFixed(3));
+    const xPercentage = Number((currentScrollX / (document.body.scrollWidth - window.innerWidth) * 100).toFixed(3));
+    const yPercentage = Number((currentScrollY / (document.body.scrollHeight - window.innerHeight) * 100).toFixed(3));
     const totalPercentage = Number(((xPercentage + yPercentage) / 2).toFixed(3));
 
     const xDirection = xDifference > 0 ? 'right' : xDifference < 0 ? 'left' : prevXDirection;
