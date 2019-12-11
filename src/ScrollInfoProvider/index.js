@@ -7,7 +7,6 @@ class ScrollInfoProvider extends Component {
     super(props);
 
     this.state = {
-      animationScheduled: false,
       x: 0,
       y: 0,
       xDifference: 0,
@@ -18,7 +17,8 @@ class ScrollInfoProvider extends Component {
       yPercentage: 0,
       totalPercentage: 0,
       eventsFired: 0,
-      animationsFired: 0,
+      hasScrolled: false,
+      animationScheduled: false,
     };
   }
 
@@ -32,44 +32,47 @@ class ScrollInfoProvider extends Component {
   }
 
   requestAnimation = () => {
-    const { animationScheduled, animationsFired } = this.state;
+    const { animationScheduled } = this.state;
     if (!animationScheduled) {
-      requestAnimationFrame(this.updateScrollInfo);
-      this.setState({ animationScheduled: true, animationsFired: animationsFired + 1 });
+      this.setState({
+        animationScheduled: true,
+      }, () => requestAnimationFrame(this.updateScrollInfo));
     }
   }
 
-  updateScrollInfo = () => {
+  updateScrollInfo = (timestamp) => {
     const {
       x: prevScrollX,
       y: prevScrollY,
       xDirection: prevXDirection,
       yDirection: prevYDirection,
-      eventsFired,
-      animationsFired,
+      eventsFired: prevEventsFired,
+      hasScrolled: prevHasScrolled,
     } = this.state;
 
-    // Set to zero on first iteration for cross-browser compatibility
-    // The inconsistencies occur when the window is reloaded with a cached scroll position
-    // Chrome mounts with the cached window.pageOffset
-    // Safari and FireFox don't populate it until the first scroll event which is triggered by the browser
-    const currentScrollX = animationsFired > 0 ? window.pageXOffset : 0;
-    const currentScrollY = animationsFired > 0 ? window.pageYOffset : 0;
+    // Set to zero on first render and mount for cross-browser compatibility --
+    // Some browsers populate the cached window.pageOffset at different points of the component lifecycle.
+    // Chrome mounts with the cached window.pageOffset, while Safari and FireFox both only
+    // populate it on first scroll event -- which is triggered by the browser in some cases.
+    // The presence of a timestamp indicates that it wasn't first render or first mount,
+    // but a true requestAnimationFrame scroll event. Keep at zero otherwise.
+    const hasScrolled = prevHasScrolled || Boolean(timestamp);
+    const currentScrollX = hasScrolled ? window.pageXOffset : 0;
+    const currentScrollY = hasScrolled ? window.pageYOffset : 0;
+    // Only increment the eventsFired state after the first true scroll event.
+    const eventsFired = hasScrolled ? prevEventsFired + 1 : prevEventsFired;
 
     const xDifference = currentScrollX - prevScrollX;
     const yDifference = currentScrollY - prevScrollY;
 
-    const xPercentage = Number((currentScrollX / (document.body.scrollWidth - window.innerWidth) * 100).toFixed(3));
-    const yPercentage = Number((currentScrollY / (document.body.scrollHeight - window.innerHeight) * 100).toFixed(3));
-    const totalPercentage = Number(((xPercentage + yPercentage) / 2).toFixed(3));
+    const xPercentage = (currentScrollX / (document.body.scrollWidth - window.innerWidth)) * 100;
+    const yPercentage = (currentScrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    const totalPercentage = (xPercentage + yPercentage) / 2;
 
     const xDirection = xDifference > 0 ? 'right' : xDifference < 0 ? 'left' : prevXDirection;
     const yDirection = yDifference > 0 ? 'down' : yDifference < 0 ? 'up' : prevYDirection;
 
-    const scrollHasChanged = xDifference !== 0 || yDifference !== 0;
-
     this.setState({
-      animationScheduled: false,
       x: currentScrollX,
       y: currentScrollY,
       xDifference,
@@ -79,42 +82,20 @@ class ScrollInfoProvider extends Component {
       xPercentage,
       yPercentage,
       totalPercentage,
-      eventsFired: scrollHasChanged ? eventsFired + 1 : eventsFired,
+      eventsFired,
+      hasScrolled,
+      animationScheduled: false,
     });
   };
 
   render() {
     const { children } = this.props;
-    const {
-      x,
-      y,
-      xDifference,
-      yDifference,
-      xDirection,
-      yDirection,
-      xPercentage,
-      yPercentage,
-      totalPercentage,
-      eventsFired,
-    } = this.state;
+    const scrollInfo = { ...this.state };
+    delete scrollInfo.hasScrolled;
+    delete scrollInfo.animationScheduled;
 
     return (
-      <ScrollInfoContext.Provider
-        value={{
-          scrollInfo: {
-            x,
-            y,
-            xDifference,
-            yDifference,
-            xDirection,
-            yDirection,
-            xPercentage,
-            yPercentage,
-            totalPercentage,
-            eventsFired,
-          },
-        }}
-      >
+      <ScrollInfoContext.Provider value={{ scrollInfo }}>
         {children}
       </ScrollInfoContext.Provider>
     );
