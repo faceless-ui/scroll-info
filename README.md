@@ -52,6 +52,10 @@ All available props can be found via the references below:
   - [ScrollInfoProvider](/src/ScrollInfoProvider/README.md)
   - [withScrollInfo](/src/withScrollInfo/README.md)
 
+## Contribution
+
+[Help us,](https://github.com/trouble/.github/blob/master/CONTRIBUTING.md) or let us [help you help us](https://github.com/trouble/.github/blob/master/SUPPORT.md).
+
 ## License
 
 [MIT](https://github.com/trouble/react-scroll-info/blob/master/LICENSE) Copyright (c) TRBL, LLC
