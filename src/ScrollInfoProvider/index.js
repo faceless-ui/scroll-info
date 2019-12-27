@@ -69,6 +69,7 @@ class ScrollInfoProvider extends Component {
     const yPercentage = (currentScrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     const totalPercentage = (xPercentage + yPercentage) / 2;
 
+    /* eslint-disable no-nested-ternary */
     const xDirection = xDifference > 0 ? 'right' : xDifference < 0 ? 'left' : prevXDirection;
     const yDirection = yDifference > 0 ? 'down' : yDifference < 0 ? 'up' : prevYDirection;
 

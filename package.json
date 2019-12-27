@@ -15,8 +15,9 @@
     "ux"
   ],
   "scripts": {
+    "build": "yarn run lint && webpack --config webpack.production.config.js",
     "dev": "webpack-dev-server --hot --inline --config webpack.development.config.js",
-    "build": "webpack --config webpack.production.config.js",
+    "lint": "eslint .",
     "test": "echo \"No test specified\""
   },
   "peerDependencies": {
@@ -32,14 +33,15 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.0.0",
+    "@trbl/eslint-config": "^1.1.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "html-webpack-plugin": "^3.2.0",
     "react-hot-loader": "^4.12.14",
     "webpack": "^4.41.4",
