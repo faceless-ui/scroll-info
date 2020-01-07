@@ -50,12 +50,12 @@ class ScrollInfoProvider extends Component {
       hasScrolled: prevHasScrolled,
     } = this.state;
 
-    // Set to zero on first render and mount for cross-browser compatibility --
+    // Set currentScroll to zero on mount for cross-browser compatibility --
     // Some browsers populate the cached window.pageOffset at different points of the component lifecycle.
-    // Chrome mounts with the cached window.pageOffset, while Safari and FireFox both only
-    // populate it on first scroll event -- which is triggered by the browser in some cases.
-    // The presence of a timestamp indicates that it wasn't first render or first mount,
-    // but a true requestAnimationFrame scroll event. Keep at zero otherwise.
+    // Chrome mounts with cached window.pageOffset coordinates even before firing the respective cached scroll event.
+    // Neither Safari and FireFox populate these coordinates until this cached scroll (natively triggered by the browser).
+    // The presence of a timestamp indicates that the caller of this method was not componentDidMount,
+    // but rather a true scroll event via requestAnimationFrame. Keep at zero otherwise.
     const hasScrolled = prevHasScrolled || Boolean(timestamp);
     const currentScrollX = hasScrolled ? window.pageXOffset : 0;
     const currentScrollY = hasScrolled ? window.pageYOffset : 0;
@@ -69,9 +69,8 @@ class ScrollInfoProvider extends Component {
     const yPercentage = (currentScrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
     const totalPercentage = (xPercentage + yPercentage) / 2;
 
-    /* eslint-disable no-nested-ternary */
-    const xDirection = xDifference > 0 ? 'right' : xDifference < 0 ? 'left' : prevXDirection;
-    const yDirection = yDifference > 0 ? 'down' : yDifference < 0 ? 'up' : prevYDirection;
+    const xDirection = xDifference > 0 ? 'right' : xDifference < 0 ? 'left' : prevXDirection; // eslint-disable-line no-nested-ternary
+    const yDirection = yDifference > 0 ? 'down' : yDifference < 0 ? 'up' : prevYDirection; // eslint-disable-line no-nested-ternary
 
     this.setState({
       x: currentScrollX,
@@ -97,16 +96,18 @@ class ScrollInfoProvider extends Component {
 
     return (
       <ScrollInfoContext.Provider value={{ scrollInfo }}>
-        {children}
+        {children && children}
       </ScrollInfoContext.Provider>
     );
   }
 }
 
-ScrollInfoProvider.defaultProps = {};
+ScrollInfoProvider.defaultProps = {
+  children: undefined,
+};
 
 ScrollInfoProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default ScrollInfoProvider;
