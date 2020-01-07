@@ -14,13 +14,13 @@ A roll, as of parchment or papyrus, used especially in the writing of a document
 $ yarn add @trbl/react-scroll-info
 ```
 
-### Compositon
+### Composition
 
 ```jsx
   import React from 'react';
   import { ScrollInfoProvider, withScrollInfo } from '@trbl/react-scroll-info';
 
-  const MyComponent = withScrollInfo(() => return <div>My Component</div>);
+  const MyComponent = withScrollInfo(() => <div>My Component</div>);
 
   const App = () => {
     return (
@@ -40,8 +40,8 @@ $ yarn add @trbl/react-scroll-info
 To demo locally, clone the repo and
 
 ```bash
-$ yarn install
-$ npm run dev
+$ yarn
+$ yarn dev
 $ open http://localhost:3000
 ```
 
@@ -49,8 +49,8 @@ $ open http://localhost:3000
 
 All available props can be found via the references below:
 
-  - [ScrollInfoProvider](/src/ScrollInfoProvider/README.md)
-  - [withScrollInfo](/src/withScrollInfo/README.md)
+  - [ScrollInfoProvider](./src/ScrollInfoProvider/README.md)
+  - [withScrollInfo](./src/withScrollInfo/README.md)
 
 ## Contribution
 
