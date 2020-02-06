@@ -1144,14 +1144,24 @@
   dependencies:
     type-detect "4.0.8"
 
-"@trbl/eslint-config@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@trbl/eslint-config/-/eslint-config-1.2.3.tgz#57d6f451e1a0494ec44f7750839e99cc88aadc4c"
-  integrity sha512-6slZiop/OXmt2iHPjebSmgMU1OBS+By8hFlXTtChs9LEQXw3fy9LKozR+Au5sqRhYg4qY7uijneMAMuBm0YZ7w==
+"@trbl/eslint-config@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@trbl/eslint-config/-/eslint-config-1.2.4.tgz#81206ed312d52057f2a58a594d9fc17877260e85"
+  integrity sha512-t2FX1LdJno9q+JYYTpLTUlGg5X9+1zjsUMvyo8KTdJBgPqIEYdLSEKl7YUkqDwSSLeWrFUPtfVYIuII6Us1dSg==
   dependencies:
     confusing-browser-globals "^1.0.9"
     object.assign "^4.1.0"
     object.entries "^1.1.1"
+
+"@trbl/utils@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@trbl/utils/-/utils-1.1.1.tgz#dca98e7590f50157abec2341cad12ade57abd2d6"
+  integrity sha512-Y6o55A/uOx3RaVVeykWAW1jBzkgbQ5ENXBmFkm722ZKquastNmKMjGS9s2t+1iTiglRIv1M4lFtcjFY93nbS0A==
+  dependencies:
+    "@babel/core" "^7.8.4"
+    "@babel/plugin-proposal-class-properties" "^7.8.3"
+    "@babel/preset-env" "^7.8.4"
+    "@babel/preset-react" "^7.8.3"
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
