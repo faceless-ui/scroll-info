@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withScrollInfo } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
+import {
+  // useScrollInfo,
+  withScrollInfo,
+} from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
 
 const ScrollInfoDemo = (props) => {
   const {
@@ -16,7 +19,7 @@ const ScrollInfoDemo = (props) => {
       totalPercentage,
       eventsFired,
     },
-  } = props;
+  } = props; // to demo hook, change to `useScrollInfo()` and remove `withScrollInfo` HOC
 
   return (
     <div style={{ position: 'fixed' }}>

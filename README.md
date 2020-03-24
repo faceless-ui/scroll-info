@@ -18,9 +18,10 @@ $ yarn add @trbl/react-scroll-info
 
 ```jsx
   import React from 'react';
-  import { ScrollInfoProvider, withScrollInfo } from '@trbl/react-scroll-info';
+  import { ScrollInfoProvider, withScrollInfo, useScrollInfo } from '@trbl/react-scroll-info';
 
   const MyComponent = withScrollInfo(() => <div>My Component</div>);
+  const MyOtherComponent = () => <div>{useScrollInfo()}</div>;
 
   const App = () => {
     return (
@@ -28,6 +29,9 @@ $ yarn add @trbl/react-scroll-info
         <MyComponent>
           ...
         </MyComponent>
+        <MyOtherComponent>
+          ...
+        </MyOtherComponent>
       </ScrollInfoProvider>
     )
   }
@@ -50,6 +54,7 @@ $ open http://localhost:3000
 All available props can be found via the references below:
 
   - [ScrollInfoProvider](./src/ScrollInfoProvider/README.md)
+  - [useScrollInfo](./src/useScrollInfo/README.md)
   - [withScrollInfo](./src/withScrollInfo/README.md)
 
 ## Contribution
