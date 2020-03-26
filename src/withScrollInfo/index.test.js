@@ -21,9 +21,9 @@ describe('withScrollInfo', () => {
   );
 
   it('rendered with an initial state of correct shape and value', () => {
-    const { value: { scrollInfo } } = wrapper.props();
+    const { value: hocProps } = wrapper.props();
 
-    expect(scrollInfo).toMatchObject({
+    expect(hocProps).toMatchObject({
       x: 0,
       y: 0,
       xDifference: 0,
@@ -39,9 +39,9 @@ describe('withScrollInfo', () => {
 
   it('received an updated scrollInfo prop after a window scroll event', () => {
     window.scrollTo(233, 325);
-    const { value: { scrollInfo } } = wrapper.props();
+    const { value: hocProps } = wrapper.props();
 
-    expect(scrollInfo).toMatchObject({
+    expect(hocProps).toMatchObject({
       x: 233,
       y: 325,
       xDifference: 233,

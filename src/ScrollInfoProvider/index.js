@@ -95,7 +95,7 @@ class ScrollInfoProvider extends Component {
     delete scrollInfo.animationScheduled;
 
     return (
-      <ScrollInfoContext.Provider value={{ scrollInfo }}>
+      <ScrollInfoContext.Provider value={{ ...scrollInfo }}>
         {children && children}
       </ScrollInfoContext.Provider>
     );

@@ -20,18 +20,14 @@ $ yarn add @trbl/react-scroll-info
   import React from 'react';
   import { ScrollInfoProvider, withScrollInfo, useScrollInfo } from '@trbl/react-scroll-info';
 
-  const MyComponent = withScrollInfo(() => <div>My Component</div>);
-  const MyOtherComponent = () => <div>{useScrollInfo()}</div>;
+  const WithScrollInfo = withScrollInfo(({ scrollInfo }) => <div>{scrollInfo}</div>);
+  const UseScrollInfo = () => <div>{useScrollInfo()}</div>;
 
   const App = () => {
     return (
       <ScrollInfoProvider>
-        <MyComponent>
-          ...
-        </MyComponent>
-        <MyOtherComponent>
-          ...
-        </MyOtherComponent>
+        <WithScrollInfo />
+        <UseScrollInfo />
       </ScrollInfoProvider>
     )
   }

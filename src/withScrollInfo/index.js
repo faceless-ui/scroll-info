@@ -8,7 +8,7 @@ const withScrollInfo = (PassedComponent) => {
         <PassedComponent
           {...{
             ...props,
-            ...context,
+            scrollInfo: context,
           }}
         />
       )}
