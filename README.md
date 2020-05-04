@@ -4,13 +4,15 @@
 
 # React Scroll Info
 
-A roll, as of parchment or papyrus, used especially in the writing of a document.
+## Highlights
 
 ## Quick Start
 
 ### Installation
 
 ```bash
+$ npm i @trbl/react-scroll-info
+$ # or
 $ yarn add @trbl/react-scroll-info
 ```
 
@@ -23,31 +25,26 @@ $ yarn add @trbl/react-scroll-info
   const WithScrollInfo = withScrollInfo(({ scrollInfo }) => <div>{scrollInfo}</div>);
   const UseScrollInfo = () => <div>{useScrollInfo()}</div>;
 
-  const App = () => {
-    return (
-      <ScrollInfoProvider>
-        <WithScrollInfo />
-        <UseScrollInfo />
-      </ScrollInfoProvider>
-    )
-  }
+  const App = () => (
+    <ScrollInfoProvider>
+      <WithScrollInfo />
+      <UseScrollInfo />
+    </ScrollInfoProvider>
+  )
 
   export default App;
 ```
 
 ## Demo
 
-To demo locally, clone the repo and
-
 ```bash
+$ git clone git@github.com:trouble/react-scroll-info.git
 $ yarn
 $ yarn dev
 $ open http://localhost:3000
 ```
 
-## Documentation
-
-All available props can be found via the references below:
+## API
 
   - [ScrollInfoProvider](./src/ScrollInfoProvider/README.md)
   - [useScrollInfo](./src/useScrollInfo/README.md)

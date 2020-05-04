@@ -66,6 +66,7 @@
     }
   },
   "files": [
-    "dist"
+    "dist/build.bundle.js",
+    "dist/build.bundle.js.map"
   ]
 }
