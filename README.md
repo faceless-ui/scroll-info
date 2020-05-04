@@ -35,6 +35,8 @@ $ yarn add @trbl/react-scroll-info
   export default App;
 ```
 
+For working examples, see the [demo app](./demo/App.demo.js).
+
 ## Demo
 
 ```bash
@@ -46,6 +48,7 @@ $ open http://localhost:3000
 
 ## API
 
+  - [ScrollInfo](./src/ScrollInfo/README.md)
   - [ScrollInfoProvider](./src/ScrollInfoProvider/README.md)
   - [useScrollInfo](./src/useScrollInfo/README.md)
   - [withScrollInfo](./src/withScrollInfo/README.md)
