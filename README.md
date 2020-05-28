@@ -1,5 +1,5 @@
-[![NPM](https://img.shields.io/npm/v/@trbl/react-scroll-info)](https://www.npmjs.com/@trbl/react-scroll-info)
-![Bundle Size](https://img.shields.io/bundlephobia/minzip/@trbl/react-scroll-info?label=zipped)
+[![NPM](https://img.shields.io/npm/v/@faceless-ui/scroll-info)](https://www.npmjs.com/@faceless-ui/scroll-info)
+![Bundle Size](https://img.shields.io/bundlephobia/minzip/@faceless-ui/scroll-info?label=zipped)
 [![Supported by TRBL](https://img.shields.io/badge/supported_by-TRBL-black)](https://github.com/trouble)
 
 # React Scroll Info
@@ -11,16 +11,16 @@
 ### Installation
 
 ```bash
-$ npm i @trbl/react-scroll-info
+$ npm i @faceless-ui/scroll-info
 $ # or
-$ yarn add @trbl/react-scroll-info
+$ yarn add @faceless-ui/scroll-info
 ```
 
 ### Composition
 
 ```jsx
   import React from 'react';
-  import { ScrollInfoProvider, withScrollInfo, useScrollInfo } from '@trbl/react-scroll-info';
+  import { ScrollInfoProvider, withScrollInfo, useScrollInfo } from '@faceless-ui/scroll-info';
 
   const WithScrollInfo = withScrollInfo(({ scrollInfo }) => <div>{scrollInfo}</div>);
   const UseScrollInfo = () => <div>{useScrollInfo()}</div>;
@@ -40,7 +40,7 @@ For working examples, see the [demo app](./demo/App.demo.js).
 ## Demo
 
 ```bash
-$ git clone git@github.com:trouble/react-scroll-info.git
+$ git clone git@github.com:faceless-ui/scroll-info.git
 $ yarn
 $ yarn dev
 $ open http://localhost:3000
@@ -55,8 +55,8 @@ $ open http://localhost:3000
 
 ## Contribution
 
-[Help us,](https://github.com/trouble/.github/blob/master/CONTRIBUTING.md) or let us [help you help us](https://github.com/trouble/.github/blob/master/SUPPORT.md).
+[Help us,](https://github.com/faceless-ui/.github/blob/master/CONTRIBUTING.md) or let us [help you help us](https://github.com/faceless-ui/.github/blob/master/SUPPORT.md).
 
 ## License
 
-[MIT](https://github.com/trouble/react-scroll-info/blob/master/LICENSE) Copyright (c) TRBL, LLC
+[MIT](https://github.com/faceless-ui/scroll-info/blob/master/LICENSE) Copyright (c) TRBL, LLC
