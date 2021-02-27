@@ -32,16 +32,16 @@ class ScrollInfoProvider extends Component<Props, IScrollInfoContext> {
     window.removeEventListener('scroll', this.requestAnimation);
   }
 
-  requestAnimation = (): void => {
+  requestAnimation = (e: WheelEvent): void => {
     const { animationScheduled } = this.state;
     if (!animationScheduled) {
       this.setState({
         animationScheduled: true,
-      }, () => requestAnimationFrame(this.updateScrollInfo));
+      }, () => requestAnimationFrame((timestamp) => this.updateScrollInfo(e, timestamp)));
     }
   }
 
-  updateScrollInfo = (timestamp?: number): void => {
+  updateScrollInfo = (e?: WheelEvent, timestamp?: number): void => {
     const {
       x: prevScrollX,
       y: prevScrollY,
