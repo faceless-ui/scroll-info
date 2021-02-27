@@ -1,17 +1,14 @@
-import PropTypes from 'prop-types';
 import { withScrollInfo } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
-
+import { IScrollInfoContext } from '../src/ScrollInfoContext/types';
 import LogProps from './LogProps';
 
-const WithScrollInfo = (props) => {
+type Props = {
+  scrollInfo: IScrollInfoContext
+}
+
+const WithScrollInfo: React.FC<Props> = (props) => {
   const { scrollInfo } = props;
   return LogProps(scrollInfo);
-};
-
-WithScrollInfo.defaultProps = {};
-
-WithScrollInfo.propTypes = {
-  scrollInfo: PropTypes.shape({}).isRequired,
 };
 
 export default withScrollInfo(WithScrollInfo);

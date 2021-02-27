@@ -7,7 +7,7 @@ import {
 import UseScrollInfo from './UseScrollInfo.demo';
 // import LogProps from './LogProps';
 
-const AppDemo = () => (
+const AppDemo: React.FC = () => (
   <ScrollInfoProvider>
     {/* <WithScrollInfo /> */}
     <UseScrollInfo />

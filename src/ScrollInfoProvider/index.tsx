@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import ScrollInfoContext from './context';
+import ScrollInfoContext from '../ScrollInfoContext';
+import { IScrollInfoContext } from '../ScrollInfoContext/types';
+import { Props } from './types';
 
-class ScrollInfoProvider extends Component {
-  constructor(props) {
+class ScrollInfoProvider extends Component<Props, IScrollInfoContext> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -11,8 +12,8 @@ class ScrollInfoProvider extends Component {
       y: 0,
       xDifference: 0,
       yDifference: 0,
-      xDirection: '',
-      yDirection: '',
+      xDirection: undefined,
+      yDirection: undefined,
       xPercentage: 0,
       yPercentage: 0,
       totalPercentage: 0,
@@ -22,16 +23,16 @@ class ScrollInfoProvider extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     window.addEventListener('scroll', this.requestAnimation);
     this.updateScrollInfo();
   }
 
-  componentWillUnmount() {
+  componentWillUnmount(): void {
     window.removeEventListener('scroll', this.requestAnimation);
   }
 
-  requestAnimation = () => {
+  requestAnimation = (): void => {
     const { animationScheduled } = this.state;
     if (!animationScheduled) {
       this.setState({
@@ -40,7 +41,7 @@ class ScrollInfoProvider extends Component {
     }
   }
 
-  updateScrollInfo = (timestamp) => {
+  updateScrollInfo = (timestamp?: number): void => {
     const {
       x: prevScrollX,
       y: prevScrollY,
@@ -88,7 +89,7 @@ class ScrollInfoProvider extends Component {
     });
   };
 
-  render() {
+  render(): JSX.Element {
     const { children } = this.props;
     const scrollInfo = { ...this.state };
     delete scrollInfo.hasScrolled;
@@ -101,13 +102,5 @@ class ScrollInfoProvider extends Component {
     );
   }
 }
-
-ScrollInfoProvider.defaultProps = {
-  children: undefined,
-};
-
-ScrollInfoProvider.propTypes = {
-  children: PropTypes.node,
-};
 
 export default ScrollInfoProvider;
