@@ -1,6 +1,6 @@
 {
   "name": "@faceless-ui/scroll-info",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "main": "dist/build.bundle.js",
   "repository": "git@github.com:faceless-ui/scroll-info.git",
   "description": "A roll, as of parchment or papyrus, used especially in the writing of a document.",
