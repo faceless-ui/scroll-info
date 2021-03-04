@@ -2,6 +2,7 @@
   "name": "@faceless-ui/scroll-info",
   "version": "1.2.3",
   "main": "dist/build.bundle.js",
+  "types": "dist/index.d.ts",
   "repository": "git@github.com:faceless-ui/scroll-info.git",
   "description": "A roll, as of parchment or papyrus, used especially in the writing of a document.",
   "author": "<dev@trbl.design>",
@@ -65,7 +66,6 @@
     }
   },
   "files": [
-    "dist/build.bundle.js",
-    "dist/build.bundle.js.map"
+    "dist"
   ]
 }
