@@ -2,35 +2,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-// bundles both the source and the demo, separately
-
 module.exports = [
-  {
-    devtool: 'source-map',
-    mode: 'production',
-    entry: './src/index.ts',
-    output: {
-      filename: 'build.bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-      libraryTarget: 'commonjs2',
-    },
-    module: {
-      rules: [
-        {
-          test: /\.(js|jsx|ts|tsx)$/,
-          exclude: /node_modules/,
-          loaders: ['ts-loader'],
-        },
-      ],
-    },
-    resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    },
-    externals: {
-      react: 'react',
-      'react-dom': 'react-dom',
-    },
-  },
   {
     devtool: 'source-map',
     mode: 'production',
@@ -44,7 +16,12 @@ module.exports = [
         {
           test: /\.(js|jsx|ts|tsx)$/,
           exclude: /node_modules/,
-          loaders: ['ts-loader'],
+          use: [{
+            loader: 'ts-loader',
+            options: {
+              configFile: 'tsconfig.demo.json',
+            },
+          }],
         },
       ],
     },
