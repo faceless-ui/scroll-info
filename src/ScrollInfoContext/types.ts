@@ -10,5 +10,4 @@ export interface IScrollInfoContext {
   totalPercentage: number,
   eventsFired: number,
   hasScrolled: boolean,
-  animationScheduled: boolean,
 }
