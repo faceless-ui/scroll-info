@@ -14,6 +14,6 @@
     "src/**/*"
   ],
   "exclude": [
-    "**/*.test.js"
+    "**/*.test.js",
   ]
 }

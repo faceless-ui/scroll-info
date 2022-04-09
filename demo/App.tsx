@@ -16,7 +16,10 @@ const AppDemo: React.FC = () => (
     </ScrollInfo> */}
     <div
       id="spacer"
-      style={{ height: '16000px', width: '10000px' }}
+      style={{
+        height: '16000px',
+        width: '10000px'
+      }}
     />
   </ScrollInfoProvider>
 );

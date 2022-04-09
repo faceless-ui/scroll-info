@@ -1,6 +1,6 @@
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { mockWindowScrollEvents, mockRequestAnimationFrame } from '@trbl/utils';
+import { mockWindowScrollEvents, mockRequestAnimationFrame } from './mocks';
 
 configure({ adapter: new Adapter() });
 

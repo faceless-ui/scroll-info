@@ -4,9 +4,7 @@
 
 # React Scroll Info
 
-## Highlights
-
-## Quick Start
+Read the full documentation [here](https://faceless-ui.com/docs/scroll-info).
 
 ### Installation
 
@@ -16,28 +14,9 @@ $ # or
 $ yarn add @faceless-ui/scroll-info
 ```
 
-### Composition
-
-```jsx
-  import React from 'react';
-  import { ScrollInfoProvider, withScrollInfo, useScrollInfo } from '@faceless-ui/scroll-info';
-
-  const WithScrollInfo = withScrollInfo(({ scrollInfo }) => <div>{scrollInfo}</div>);
-  const UseScrollInfo = () => <div>{useScrollInfo()}</div>;
-
-  const App = () => (
-    <ScrollInfoProvider>
-      <WithScrollInfo />
-      <UseScrollInfo />
-    </ScrollInfoProvider>
-  )
-
-  export default App;
-```
-
-For working examples, see the [demo app](./demo/App.demo.js).
-
 ## Demo
+
+For working examples, spin up the [demo app](./demo/App.demo.js):
 
 ```bash
 $ git clone git@github.com:faceless-ui/scroll-info.git
@@ -45,13 +24,6 @@ $ yarn
 $ yarn dev
 $ open http://localhost:3000
 ```
-
-## API
-
-  - [ScrollInfo](./src/ScrollInfo/README.md)
-  - [ScrollInfoProvider](./src/ScrollInfoProvider/README.md)
-  - [useScrollInfo](./src/useScrollInfo/README.md)
-  - [withScrollInfo](./src/withScrollInfo/README.md)
 
 ## Contribution
 

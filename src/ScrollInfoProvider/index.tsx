@@ -6,7 +6,6 @@ import React, {
 } from 'react';
 import ScrollInfoContext from '../ScrollInfoContext';
 import { IScrollInfoContext } from '../ScrollInfoContext/types';
-import { Props } from './types';
 
 const reducer = (
   state: IScrollInfoContext,
@@ -69,7 +68,7 @@ const reducer = (
   };
 };
 
-const ScrollInfoProvider: React.FC<Props> = (props) => {
+const ScrollInfoProvider: React.FC = (props) => {
   const {
     children,
   } = props;
