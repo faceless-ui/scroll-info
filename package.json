@@ -3,6 +3,7 @@
   "version": "1.2.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage:": "https://faceless-ui/docs/scroll-info",
   "repository": "git@github.com:faceless-ui/scroll-info.git",
   "description": "React utility for subscribing to scroll events",
   "author": "<dev@trbl.design>",
