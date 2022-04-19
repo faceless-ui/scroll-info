@@ -5,22 +5,24 @@ import React, {
   useRef,
 } from 'react';
 import ScrollInfoContext from '../ScrollInfoContext';
-import { IScrollInfoContext } from '../ScrollInfoContext/types';
+import { IScrollInfoContext } from '../ScrollInfoContext';
+
+type AnimationRef = React.MutableRefObject<number | null>;
 
 const reducer = (
   state: IScrollInfoContext,
   payload: {
-    e?: WheelEvent,
+    e?: Event,
     timestamp?: number,
-    animationRef: React.MutableRefObject<number>
+    animationRef: AnimationRef
   },
-) => {
+): IScrollInfoContext => {
   const {
     timestamp,
     animationRef,
   } = payload;
 
-  animationRef.current = undefined;
+  animationRef.current = null;
 
   const {
     x: prevScrollX,
@@ -68,12 +70,14 @@ const reducer = (
   };
 };
 
-const ScrollInfoProvider: React.FC = (props) => {
+const ScrollInfoProvider: React.FC<{
+  children: React.ReactNode
+}> = (props) => {
   const {
     children,
   } = props;
 
-  const animationRef = useRef<number>(null);
+  const animationRef = useRef<number | null>(null);
 
   const [state, dispatch] = useReducer(reducer, {
     x: 0,
@@ -87,10 +91,13 @@ const ScrollInfoProvider: React.FC = (props) => {
     totalPercentage: 0,
     eventsFired: 0,
     hasScrolled: false,
-  });
+  } as IScrollInfoContext);
 
-  const requestAnimation = useCallback((e?: WheelEvent): void => {
-    if (animationRef.current) cancelAnimationFrame(animationRef.current);
+  const requestAnimation = useCallback((e?: Event): void => {
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+
     animationRef.current = requestAnimationFrame(
       (timestamp) => {
         dispatch({

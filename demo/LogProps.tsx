@@ -1,9 +1,9 @@
 import React from 'react';
-import { IScrollInfoContext } from '../src/ScrollInfoContext/types';
+import { IScrollInfoContext } from '../src/ScrollInfoContext';
 
 const filterObject = () => {
   const seen = new WeakSet();
-  return (key, value) => {
+  return (key: unknown, value: unknown) => {
     if (typeof value === 'object' && value !== null) {
       if (seen.has(value)) return '[Circle]';
       seen.add(value);
