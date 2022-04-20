@@ -1,6 +1,6 @@
 {
   "name": "@faceless-ui/scroll-info",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "homepage:": "https://faceless-ui/docs/scroll-info",
