@@ -1,3 +1,5 @@
+// TODO: migrate away from enzyme, maybe to React Testing Library
+
 import React from 'react';
 import { mount } from 'enzyme';
 
