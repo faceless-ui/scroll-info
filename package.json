@@ -3,10 +3,25 @@
   "version": "1.2.7",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "homepage:": "https://faceless-ui/docs/scroll-info",
+  "homepage:": "https://facelessui.com/docs/scroll-info",
   "repository": "git@github.com:faceless-ui/scroll-info.git",
   "description": "A React Context library for subscribing to scroll events",
-  "author": "<dev@trbl.design>",
+  "author": {
+    "email": "jacobsfletch@gmail.com",
+    "name": "Jacob Fletcher",
+    "url": "https://jacobsfletch.com"
+  },
+  "bugs": {
+    "url": "https://github.com/faceless-ui/scroll-info/issues",
+    "email": "dev@facelessui.com"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://github.com/sponsors/jacobsfletch"
+    }
+  ],
+  "contributors": [],
   "license": "MIT",
   "keywords": [
     "react",
