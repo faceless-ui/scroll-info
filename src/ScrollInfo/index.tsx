@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
 import useScrollInfo from '../useScrollInfo';
-import { IScrollInfoContext } from '../ScrollInfoContext';
+import { IScrollInfoContext } from '../ScrollInfoProvider/context';
 
 export type ChildFunction = (context: IScrollInfoContext) => React.ReactNode; // eslint-disable-line no-unused-vars
 
-const ScrollInfo: React.FC<{
+export type ScrollInfoProps = {
   children?: React.ReactNode | ChildFunction
-}> = (props) => {
+}
+
+const ScrollInfo: React.FC<ScrollInfoProps> = (props) => {
   const { children } = props;
   const scrollInfo = useScrollInfo();
 

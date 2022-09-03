@@ -1,6 +1,5 @@
 import { useContext } from 'react';
-import ScrollInfoContext from '../ScrollInfoContext';
-import { IScrollInfoContext } from '../ScrollInfoContext';
+import ScrollInfoContext, { IScrollInfoContext } from '../ScrollInfoProvider/context';
 
 const useScrollInfo = (): IScrollInfoContext => useContext(ScrollInfoContext);
 

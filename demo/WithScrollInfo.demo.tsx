@@ -1,5 +1,5 @@
 import { withScrollInfo } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
-import { IScrollInfoContext } from '../src/ScrollInfoContext';
+import { IScrollInfoContext } from '../src/ScrollInfoProvider/context';
 import LogProps from './LogProps';
 
 const WithScrollInfo: React.FC<{
