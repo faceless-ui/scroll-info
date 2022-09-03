@@ -1,5 +1,5 @@
 import React from 'react';
-import { IScrollInfoContext } from '../src/ScrollInfoContext';
+import { IScrollInfoContext } from '../src/ScrollInfoProvider/context';
 
 const filterObject = () => {
   const seen = new WeakSet();
