@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollInfo } from '..';
+import { default as useScrollInfo } from '../useScrollInfo/index.js';
 
 const withScrollInfo = <P extends Record<string, unknown>>(
   PassedComponent: React.ComponentType<P>,

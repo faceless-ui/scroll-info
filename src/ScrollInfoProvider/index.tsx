@@ -4,7 +4,7 @@ import React, {
   useReducer,
   useRef,
 } from 'react';
-import ScrollInfoContext, { IScrollInfoContext } from '../ScrollInfoProvider/context';
+import ScrollInfoContext, { IScrollInfoContext } from '../ScrollInfoProvider/context.js';
 
 type AnimationRef = React.MutableRefObject<number | null>;
 
