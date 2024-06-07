@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import useScrollInfo from '../useScrollInfo/index.js';
+import { useScrollInfo } from '../useScrollInfo/index.js';
 import { IScrollInfoContext } from '../ScrollInfoProvider/context.js';
 
 export type ChildFunction = (context: IScrollInfoContext) => React.ReactNode; // eslint-disable-line no-unused-vars
