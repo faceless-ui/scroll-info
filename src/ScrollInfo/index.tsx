@@ -8,7 +8,7 @@ export type ScrollInfoProps = {
   children?: React.ReactNode | ChildFunction
 }
 
-const ScrollInfo: React.FC<ScrollInfoProps> = (props) => {
+export const ScrollInfo: React.FC<ScrollInfoProps> = (props) => {
   const { children } = props;
   const scrollInfo = useScrollInfo();
 
@@ -29,5 +29,3 @@ const ScrollInfo: React.FC<ScrollInfoProps> = (props) => {
   }
   return null;
 };
-
-export default ScrollInfo;

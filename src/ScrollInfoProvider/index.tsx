@@ -4,7 +4,7 @@ import React, {
   useReducer,
   useRef,
 } from 'react';
-import ScrollInfoContext, { IScrollInfoContext } from '../ScrollInfoProvider/context.js';
+import { ScrollInfoContext, IScrollInfoContext } from '../ScrollInfoProvider/context.js';
 
 type AnimationRef = React.MutableRefObject<number | null>;
 
@@ -73,7 +73,7 @@ export type ScrollInfoProviderProps = {
   children: React.ReactNode
 }
 
-const ScrollInfoProvider: React.FC<ScrollInfoProviderProps> = (props) => {
+export const ScrollInfoProvider: React.FC<ScrollInfoProviderProps> = (props) => {
   const {
     children,
   } = props;
@@ -135,5 +135,3 @@ const ScrollInfoProvider: React.FC<ScrollInfoProviderProps> = (props) => {
     </ScrollInfoContext.Provider>
   );
 };
-
-export default ScrollInfoProvider;

@@ -1,5 +1,5 @@
-import { withScrollInfo } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
-import { IScrollInfoContext } from '../src/ScrollInfoProvider/context';
+import { withScrollInfo } from '@faceless-ui/scroll-info';
+import type { IScrollInfoContext } from '../src/types';
 import LogProps from './LogProps';
 
 const WithScrollInfo: React.FC<{

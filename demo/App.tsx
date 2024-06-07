@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  ScrollInfoProvider,
-  // ScrollInfo,
-} from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
+import { ScrollInfoProvider } from '@faceless-ui/scroll-info';
 // import WithScrollInfo from './WithScrollInfo.demo';
 import UseScrollInfo from './UseScrollInfo.demo';
 // import LogProps from './LogProps';
