@@ -1,5 +1,6 @@
 import path from 'path';
-import webpack from 'webpack';
+/// <reference path="node_modules/webpack-dev-server/types/lib/Server.d.ts"/>
+import { Configuration } from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 import { fileURLToPath } from 'node:url'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
@@ -8,7 +9,7 @@ import ESLintPlugin from 'eslint-webpack-plugin';
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const config: webpack.Configuration = {
+const config: Configuration = {
   devtool: 'inline-source-map',
   mode: 'development',
   entry: path.resolve(dirname, 'demo/index.tsx'),
