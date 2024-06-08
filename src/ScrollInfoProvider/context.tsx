@@ -14,6 +14,4 @@ export interface IScrollInfoContext {
   hasScrolled: boolean,
 }
 
-const ScrollInfoContext = createContext<IScrollInfoContext>({} as IScrollInfoContext);
-
-export default ScrollInfoContext;
+export const ScrollInfoContext = createContext<IScrollInfoContext>({} as IScrollInfoContext);

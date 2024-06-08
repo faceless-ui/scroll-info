@@ -1,7 +1,7 @@
 import React from 'react';
-import { useScrollInfo } from '..';
+import { useScrollInfo } from '../useScrollInfo/index.js';
 
-const withScrollInfo = <P extends Record<string, unknown>>(
+export const withScrollInfo = <P extends Record<string, unknown>>(
   PassedComponent: React.ComponentType<P>,
 ): React.FC<P> => {
   const ScrollInfoWrap: React.FC<P> = (props) => {
@@ -18,5 +18,3 @@ const withScrollInfo = <P extends Record<string, unknown>>(
   };
   return ScrollInfoWrap;
 };
-
-export default withScrollInfo;

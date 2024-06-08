@@ -1,5 +1,5 @@
-export { default as ScrollInfo } from './ScrollInfo';
-export { default as ScrollInfoContext } from './ScrollInfoProvider/context';
-export { default as ScrollInfoProvider } from './ScrollInfoProvider';
-export { default as useScrollInfo } from './useScrollInfo';
-export { default as withScrollInfo } from './withScrollInfo';
+export { ScrollInfo } from './ScrollInfo/index.js';
+export { ScrollInfoContext } from './ScrollInfoProvider/context.js';
+export { ScrollInfoProvider } from './ScrollInfoProvider/index.js';
+export { useScrollInfo } from './useScrollInfo/index.js';
+export { withScrollInfo } from './withScrollInfo/index.js';

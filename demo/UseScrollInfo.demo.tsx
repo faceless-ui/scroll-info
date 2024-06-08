@@ -1,4 +1,4 @@
-import { useScrollInfo } from '../src'; // swap '../src' for '../dist/build.bundle' to demo production build
+import { useScrollInfo } from '@faceless-ui/scroll-info';
 import LogProps from './LogProps';
 
 const UseScrollInfo: React.FC = () => {

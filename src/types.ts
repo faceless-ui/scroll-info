@@ -1,3 +1,3 @@
-export { ScrollInfoProviderProps } from './ScrollInfoProvider';
-export { ScrollInfoProps } from './ScrollInfo';
-export { IScrollInfoContext } from './ScrollInfoProvider/context';
+export type { ScrollInfoProviderProps } from './ScrollInfoProvider/index.js';
+export type { ScrollInfoProps } from './ScrollInfo/index.js';
+export type { IScrollInfoContext } from './ScrollInfoProvider/context.js';
