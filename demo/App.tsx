@@ -1,8 +1,8 @@
 import React from 'react';
 import { ScrollInfoProvider } from '@faceless-ui/scroll-info';
-// import WithScrollInfo from './WithScrollInfo.demo';
-import UseScrollInfo from './UseScrollInfo.demo';
-// import LogProps from './LogProps';
+// import WithScrollInfo from './WithScrollInfo.demo.js';
+import UseScrollInfo from './UseScrollInfo.demo.js';
+// import LogProps from './LogProps.js';
 
 const AppDemo: React.FC = () => (
   <ScrollInfoProvider>

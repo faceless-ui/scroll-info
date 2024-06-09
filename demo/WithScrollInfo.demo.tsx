@@ -1,6 +1,6 @@
 import { withScrollInfo } from '@faceless-ui/scroll-info';
-import type { IScrollInfoContext } from '../src/types';
-import LogProps from './LogProps';
+import type { IScrollInfoContext } from '../src/types.js';
+import LogProps from './LogProps.js';
 
 const WithScrollInfo: React.FC<{
   scrollInfo: IScrollInfoContext

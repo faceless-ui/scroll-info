@@ -1,5 +1,5 @@
 import React from 'react';
-import type { IScrollInfoContext } from '../src/types';
+import type { IScrollInfoContext } from '../src/types.js';
 
 const filterObject = () => {
   const seen = new WeakSet();
